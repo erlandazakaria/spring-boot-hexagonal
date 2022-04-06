@@ -1,21 +1,19 @@
 package com.learn.hexagonal.application.model;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 public class Data {
     private String key;
-    private JsonNode content;
+    private Object value;
 
-    public Data(String key, JsonNode content) {
+    public Data(String key, Object value) {
         this.key = key;
-        this.content = content;
+        this.value = value;
     }
 
     public String getKey() {
         return key;
     }
 
-    public JsonNode getContent() {
-        return content;
+    public Object getValue() {
+        return value;
     }
 }

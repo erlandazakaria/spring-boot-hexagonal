@@ -1,10 +1,12 @@
-package com.learn.hexagonal.application.model;
+package com.learn.hexagonal.adapter.web;
 
-public class ResponseData {
+import com.learn.hexagonal.application.model.Data;
+
+public class ResponseDto {
     private int status;
     private Data data;
 
-    public ResponseData(int status, Data data) {
+    public ResponseDto(int status, Data data) {
         this.status = status;
         this.data = data;
     }

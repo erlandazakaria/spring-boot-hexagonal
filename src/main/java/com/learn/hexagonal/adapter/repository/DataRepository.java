@@ -1,16 +1,17 @@
 package com.learn.hexagonal.adapter.repository;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learn.hexagonal.adapter.client.RestClientAdapter;
 import com.learn.hexagonal.application.model.Data;
 import com.learn.hexagonal.application.port.out.LoadData;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class DataRepository implements LoadData {
 
+    @Autowired
+    RestClientAdapter restClientAdapter;
+
     @Override
-    public Data load(String key) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Data data = new Data("a", objectMapper.readTree("{\"foo\":\"bar\"}"));
-        return data;
+    public Data load(String key) {
+        return restClientAdapter.load(key);
     }
 }
